@@ -1,0 +1,24 @@
+int MainWindow::populateCategory()
+{
+    QString path = "demo.db";
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");//not dbConnection
+    db.setDatabaseName(path);
+    db.open();
+    QSqlQuery query;
+    query.exec("select * from a");
+    qDebug() << query.first();
+    qDebug() << query.value(0);
+    qDebug() << query.value(1);
+    while(query.next())
+    {
+        qDebug() << query.value(0);
+        qDebug() << query.value(1);
+    }
+    return 0;
+}
+
+// Create new SecDialog Class from new - Qt -> Form
+// SecDialog secdialog;
+// secdialog.setModal(true);
+// secdialog.exec();
+// Remeber to CleanAll -> Run qmake

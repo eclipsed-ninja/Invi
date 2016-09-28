@@ -14,6 +14,8 @@ class Dialog : public QDialog
 public:
     explicit Dialog(QWidget *parent = 0);
     ~Dialog();
+    void populateInvoice();
+    void populateSearch(QString);
 
 private:
     Ui::Dialog *ui;
